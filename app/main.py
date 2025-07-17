@@ -12,7 +12,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # O pon la URL de tu frontend para más seguridad
+    allow_origins=["https://predictgrade.fernandohuilca.com"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
