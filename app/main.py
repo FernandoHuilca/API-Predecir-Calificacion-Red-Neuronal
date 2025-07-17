@@ -1,3 +1,4 @@
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI #libreria para crear APIs
 from app.routes import basic_routes, get_routes, post_routes #Importacion de archivos de rutas
 # Crear una instancia de FastAPI
@@ -7,6 +8,14 @@ app = FastAPI(
     version="1.0.0",
     docs_url="/docs",
     redoc_url="/redoc"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # O pon la URL de tu frontend para más seguridad
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Incluir las rutas
